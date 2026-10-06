@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sanad settings</title>
+<style>
+ body{font-family:"Segoe UI",system-ui,Arial,sans-serif;background:#F2F4FF;color:#12183F;margin:0;padding:32px}
+ main{max-width:640px;margin:auto;background:#fff;border:1px solid #E3E6F7;border-radius:16px;padding:28px}
+ h1{margin:0 0 4px;font-size:22px} p.sub{margin:0 0 20px;color:#4A5178;font-size:14px}
+ label{display:block;font-weight:600;font-size:14px;margin:18px 0 6px}
+ input[type=text],input[type=password],select,textarea{width:100%;box-sizing:border-box;border:1px solid #D9DCF2;border-radius:10px;padding:10px;font-size:14px}
+ .hint{font-size:12.5px;color:#4A5178;margin-top:5px;line-height:1.5}
+ .row{display:flex;gap:10px;align-items:center;margin-top:14px} .row label{margin:0;font-weight:500}
+ button{margin-top:22px;background:#6150EA;color:#fff;border:0;border-radius:10px;padding:11px 20px;font-weight:700;font-size:14px;cursor:pointer}
+ #status{margin-left:12px;color:#0B6B47;font-weight:600;font-size:14px}
+ code{background:#F2F4FF;padding:1px 5px;border-radius:5px}
+ details{margin-top:18px;font-size:14px}
+</style></head><body><main>
+<h1>Sanad settings</h1>
+<p class="sub">Sanad verifies selected text against the challenge's approved sources only.</p>
+<label for="provider">Provider</label>
+<select id="provider"><option value="anthropic">Anthropic (Claude)</option><option value="novita">Novita (GLM)</option></select>
+<div class="hint" id="providerHint"></div>
+<label for="apiKey">API key</label>
+<input id="apiKey" type="password" placeholder="sk-..." autocomplete="off">
+<div class="hint">Stored only in this browser (chrome.storage.local) and sent only to the selected provider. For a public release, route requests through your own backend instead of storing keys in the browser.</div>
+<div id="searchKeyBox">
+<label for="searchKey">Tavily search key</label>
+<input id="searchKey" type="password" placeholder="tvly-..." autocomplete="off">
+<div class="hint">This provider can't search the web by itself, so Sanad searches the approved sources through <a href="https://app.tavily.com" target="_blank">Tavily</a> and gives the results to the model. Each search uses 2 Tavily credits.</div>
+</div>
+<label for="model">Model</label>
+<input id="model" type="text">
+<div class="hint" id="modelHint"></div>
+<label for="answerLanguage">Answer language</label>
+<select id="answerLanguage"><option>English</option><option>Arabic</option><option>Urdu</option><option>Indonesian</option><option>French</option><option>Turkish</option></select>
+<label>Sources</label>
+<div class="hint">Always searched (approved package): dorar.net · shamela.ws · quranpedia.net · islamic-content.com · dawa.center</div>
+<div class="row"><input id="useExtendedEnglish" type="checkbox"><label for="useExtendedEnglish">Also search English sites sunnah.com and quran.com (not part of the challenge's approved package)</label></div>
+<details><summary>Advanced</summary>
+<label for="extraDomains">Extra allowed domains (comma separated)</label><input id="extraDomains" type="text" placeholder="">
+<label for="maxSearches">Max searches per check</label><input id="maxSearches" type="text">
+<label for="apiBase">API base URL</label><input id="apiBase" type="text">
+<label for="searchApiBase">Search API base URL (Tavily)</label><input id="searchApiBase" type="text">
+<div class="hint">Change only for testing or when using your own proxy.</div>
+</details>
+<button id="save">Save</button><span id="status"></span>
+</main><script type="module" src="options.js"></script></body></html>

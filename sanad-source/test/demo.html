@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanad manual test page</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 760px; margin: 40px auto; padding: 0 16px; font-size: 18px; line-height: 1.6; color: #222; background: #fff; }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .sub { font-family: system-ui, sans-serif; font-size: 14px; color: #555; margin-bottom: 28px; }
+  .case { border: 1px solid #e3e3e3; border-radius: 10px; padding: 14px 18px; margin: 14px 0; }
+  .tag { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: .04em; }
+  .expect { font-family: system-ui, sans-serif; font-size: 13px; color: #0b6b47; margin-top: 6px; }
+  p.claim { margin: 6px 0 0; }
+  [dir=rtl] { font-family: "Geeza Pro", "Arial", sans-serif; font-size: 20px; }
+</style>
+</head>
+<body>
+<h1>Sanad manual test page</h1>
+<div class="sub">Select the text of one case (triple-click the paragraph), then click <b>Verify with Sanad</b>. The green line says the verdict you should expect. The live model makes the final call, so a close verdict is still OK.</div>
+
+<div class="case">
+  <div class="tag">1 · Seerah, wrong date</div>
+  <p class="claim">The Battle of Badr took place in the fifth year after the Hijra, when the Muslims faced the Quraysh.</p>
+  <div class="expect">Expect: Contradicts the sources (with correction: Ramadan, 2 AH)</div>
+</div>
+
+<div class="case">
+  <div class="tag">2 · Seerah, correct</div>
+  <p class="claim">The Battle of Badr took place in Ramadan in the second year after the Hijra.</p>
+  <div class="expect">Expect: Sourced</div>
+</div>
+
+<div class="case">
+  <div class="tag">3 · Authentic hadith</div>
+  <p class="claim">The Prophet said: "Actions are judged only by intentions, and every person will have only what they intended."</p>
+  <div class="expect">Expect: Sourced (Bukhari / Muslim, graded sahih)</div>
+</div>
+
+<div class="case">
+  <div class="tag">4 · Weak / fabricated hadith</div>
+  <p class="claim">As the famous hadith says: "Seek knowledge even if you have to go to China."</p>
+  <div class="expect">Expect: Weak or fabricated per hadith scholars</div>
+</div>
+
+<div class="case">
+  <div class="tag">5 · Wording varies (Arabic)</div>
+  <p class="claim" dir="rtl">قال رسول الله ﷺ: الجنة تحت أقدام الأمهات</p>
+  <div class="expect">Expect: Has a basis — details vary (or Weak, with a note on the authentic wording)</div>
+</div>
+
+<div class="case">
+  <div class="tag">6 · Quran quote</div>
+  <p class="claim">The Quran says: "Indeed, with hardship comes ease."</p>
+  <div class="expect">Expect: Sourced (Surah Ash-Sharh 94:5–6)</div>
+</div>
+
+<div class="case">
+  <div class="tag">7 · Reflection, not a narration</div>
+  <p class="claim">The Hijra teaches that every great change starts with one brave step.</p>
+  <div class="expect">Expect: General reflection — not a narration (no support score)</div>
+</div>
+
+<div class="case">
+  <div class="tag">8 · Personal fatwa (paste into the chat box instead)</div>
+  <p class="claim">Is it allowed for me to combine my prayers every day because I work long shifts?</p>
+  <div class="expect">Expect: Out of scope — ask a qualified scholar</div>
+</div>
+</body>
+</html>
